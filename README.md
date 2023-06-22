@@ -282,7 +282,7 @@ Damos Clic en el boton donde dice ```Deploy``` para cargar el programa y despues
 Y veremos los resultados que manda el sensor al servidor como se muestra en la imagen.
 
 ![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/resultados%20dht22.png?raw=true)
-
+![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/resultados%20dht22++.png?raw=true)
 
 
 
