@@ -1,10 +1,10 @@
 # Sensor de DHT22 con node-red
-Este repositorio muestra como podemos programar una ESP32 con un DHT22 y ocupando la plataforma node-red y ahi poder visualizar en timpo y forma la Temperatura y la Húmedad y almismo tiempo graficar los resultados obtenidos.
+Este repositorio muestra como podemos programar una ESP32 con un DHT22 y ocupando la plataforma node-red y ahi poder visualizar en timpo y forma la Temperatura y la Húmedad y almismo tiempo observar graficos de los mismos resultados.
 
 
 ### Descripción
 
-La ```Esp32``` la utilizamos en un entorno de adquision de datos, lo cual en esta practica ocuparemos un sensor (```DHT22```) para medir de temperatura y humedad. Cabe aclarar que esta practica se usara en el simulador llamado [WOKWI](https://https://wokwi.com/).
+La ```Esp32``` la utilizamos en un entorno de adquision de datos, lo cual en esta practica ocuparemos un sensor ```DHT22``` para medir de temperatura y humedad. Cabe aclarar que esta practica se usara en el simulador llamado [WOKWI](https://https://wokwi.com/) y ```localhost:1880```
 
 
 ## Material Necesario
@@ -17,12 +17,53 @@ Para realizar esta practica necesitas lo siguiente
 - NODE-red (http://localhost:1880/#flow/214928d358894902)
 
 
-## Instrucciones
-
+# Instrucciones 
 
 ### Requisitos previos
 
-Para poder usar este repositorio necesitas entrar a la plataforma [WOKWI](https://https://wokwi.com/) y NODE-red (http://localhost:1880/#flow/214928d358894902) para esta ultima necvesitamos instalar un programa 
+# Instalar Node-Red
+
+## Pasos para instalación
+
+1. Entrar a la pagina  https://nodejs.org/en
+2. Descargar el archivo **18.16.0 LTS** como se muestra en la siguente imagen.
+
+![](https://github.com/DiegoJm10/Node-red-instalcacion/blob/main/Node.js%20-%20Google%20Chrome%2014_06_2023%2005_04_00%20p.%20m..png?raw=true)
+
+3. Abrir el archivo e instalar el programa [node.js](https://nodejs.org/en)
+
+
+4. Nos vamos al inicio y buscamos ```cmd``` cOmo se muestra en la imagen y damos clic en "ejecutar como administrador" y escribir lo siguente:
+![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/CMD.png?raw=true)
+
+```
+npm install -g --unsafe-perm node-red
+```
+![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/npm%20instal.png?raw=true)
+
+5. Despues comprobamos que funcione node-red con el siguente codigo: (con este mismo codigo podemos arrancar el programa siempre que lo necesitemos)
+
+```
+node-red
+```
+ ![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/node-red.png?raw=true)
+
+
+ ## Arranque de programa
+
+Para abrir la aplicación nos vamos algun explorador y colocamos el siguente link:    ```localhost:1880```
+
+
+## Instalación de Dashboard
+
+1. Abrimos la pestaña de opciones y elegimos ```Manage palette``` 
+
+![](https://github.com/DiegoJm10/Node-red-instalcacion/blob/main/Node.js%20-%20Google%20Chrome%2014_06_2023%2005_06_26%20p.%20m..png?raw=true)
+
+2. Seleccionamos **Install* y buscamos ```node-red-dashboard```.
+3. Seleccionamos ```node-red-dashboard```.
+![](https://github.com/DiegoJm10/Node-red-instalcacion/blob/main/Node.js%20-%20Google%20Chrome%2014_06_2023%2005_06_17%20p.%20m..png?raw=true)
+
 
 
 ### Instrucciones de preparación de entorno 
@@ -43,9 +84,9 @@ MAX6675 termopar(CSK,CS,SO);
 
 const char* ssid = "Eventos_FCQeI";
 const char* password = "2023FCQEI";
-const char* mqtt_server = "52.57.167.175";
-String username_mqtt="educatronicosiot";
-String password_mqtt="12345678";
+const char* mqtt_server = "44.195.202.69";
+String username_mqtt="Alexcollado";
+String password_mqtt="190323";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -169,11 +210,12 @@ delay(1000);
 }
 
 ```
-2. Instalamos la libreria de **DHT sensor library for ESPx** y **LiquidCrystal I2C** como se muestra en la siguente imagen, dando clic en (Library Manager) y despues en el simbolo de (+)
+
+2. Instalamos la libreria de **DHT sensor library for ESPx**, **PubSubClient** y **ArduinoJson** como se muestra en la siguente imagen, dando clic en (Library Manager) y despues en el simbolo de (+)
 
 ![](https://github.com/Omarcollado23/PRACTICA-5DHT-LCD-ULTRASONICO/blob/main/libreria.jpg?raw=true)
 
-3. Hacemos las conexiones el **ESP32** del sensor **HC-SR04**, el sensor **DHT22** y el **LCD** como se muestra en la siguiente imagen
+3. Hacemos las conexiones del **ESP32** y el sensor **DHT22** como se muestra en la siguiente imagen
 
 ![](https://github.com/Omarcollado23/PRACTICA-5DHT-LCD-ULTRASONICO/blob/main/conexiones.jpg?raw=true)
 
@@ -181,17 +223,55 @@ delay(1000);
 
 1. Iniciamos el simulador.
 2. Visualizar los datos en el monitor serial.
-3. Colocar la distancia dando *doble click* al sensor **HC-SR04** 
-
-  
+3.  Colocar la temperatura y humedad dando *doble click* al sensor **DHT22** 
+ 
 
 ## Resultados
 
-Cuando haya funcionado, la información obtenida del sensor **DHT22** y **HC-SR04** se arrojara en el LCD como se muestra en las siguentes imagenes.
+Abrimos una nueva pestaña en el navegador que utilizas e insertamos en la barra de navegación el suiguiente link (localhost:1880)
 
-![](https://github.com/Omarcollado23/PRACTICA-5DHT-LCD-ULTRASONICO/blob/main/datos%20distance.jpg?raw=true)
-![](https://github.com/Omarcollado23/PRACTICA-5DHT-LCD-ULTRASONICO/blob/main/datos%202.jpg?raw=true)
-![](https://github.com/Omarcollado23/PRACTICA-5DHT-LCD-ULTRASONICO/blob/main/datos%20hum-temp.jpg?raw=true)
+![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/localhost1.png?raw=true)
+
+## Instrucciones 
+
+1. Colocar bloque ```mqqtt in```.
+
+![](https://github.com/DiegoJm10/dht22-con-node-red/blob/main/bloquemqtt.png?raw=true)
+
+2. Configurar el bloque con el puerto mqtt con el ip ```44.195.202.69:1883``` como se muestra en la imagen.
+
+![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/%23servidor.png?raw=true)
+
+3. Colocar el bloque json y configurarlo como se muestra en la imagen.
+
+![](https://github.com/DiegoJm10/dht22-con-node-red/blob/main/JSON.png?raw=true)
+
+4. Colocamos UN bloque de function y lo configuramos con el siguente codigo.
+
+```
+msg.payload = msg.payload.DISTANCIA;
+msg.topic = "DISTANCIA";
+return msg;
+```
+![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/code%20distancia.png?raw=true)
+
+5. Colocamos los bloques de chart y gauge.
+
+![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/distancia%20conf.png?raw=true)
+
+![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/grafic.png?raw=true)
+## Resultados
+
+Cuando haya funcionado, la información obtenida del sensor **HC-SR04** los mandara a servidor cuando se haga conexión y los observaremos por medio del dashboard. 
+
+Damos Clic en el boton donde dice ```Deploy``` para cargar el programa y despues oprimos la pestaña con una flechita señalnado hacia arriba en diagonal, como se muestra en la imagen. 
+
+![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/deploy.png?raw=true)
+
+Y veremos los resultados que manda el sensor al servidor como se muestra en la imagen.
+
+![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/resultados.png?raw=true)
+
 
 
 
