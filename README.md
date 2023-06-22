@@ -213,11 +213,11 @@ delay(1000);
 
 2. Instalamos la libreria de **DHT sensor library for ESPx**, **PubSubClient** y **ArduinoJson** como se muestra en la siguente imagen, dando clic en (Library Manager) y despues en el simbolo de (+)
 
-![](https://github.com/Omarcollado23/PRACTICA-5DHT-LCD-ULTRASONICO/blob/main/libreria.jpg?raw=true)
+![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/libreria.png?raw=true)
 
 3. Hacemos las conexiones del **ESP32** y el sensor **DHT22** como se muestra en la siguiente imagen
 
-![](https://github.com/Omarcollado23/PRACTICA-5DHT-LCD-ULTRASONICO/blob/main/conexiones.jpg?raw=true)
+![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/conexion%20dht22.png?raw=true)
 
 ### Instrucciónes de operación
 
@@ -226,7 +226,7 @@ delay(1000);
 3.  Colocar la temperatura y humedad dando *doble click* al sensor **DHT22** 
  
 
-## Resultados
+# Instrucciones para hacer la conexión con NODE-RED
 
 Abrimos una nueva pestaña en el navegador que utilizas e insertamos en la barra de navegación el suiguiente link (localhost:1880)
 
@@ -240,29 +240,40 @@ Abrimos una nueva pestaña en el navegador que utilizas e insertamos en la barra
 
 2. Configurar el bloque con el puerto mqtt con el ip ```44.195.202.69:1883``` como se muestra en la imagen.
 
-![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/%23servidor.png?raw=true)
+![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/conf%20servidor.png?raw=true)
 
 3. Colocar el bloque json y configurarlo como se muestra en la imagen.
 
-![](https://github.com/DiegoJm10/dht22-con-node-red/blob/main/JSON.png?raw=true)
+![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/conf%20servidor%202.png?raw=true)
 
-4. Colocamos UN bloque de function y lo configuramos con el siguente codigo.
+4. Colocamos dos bloques function y lo configuramos con el siguente codigo.
 
-```
-msg.payload = msg.payload.DISTANCIA;
-msg.topic = "DISTANCIA";
+msg.payload = msg.payload.TEMPERATURA;
+msg.topic = "TEMPERATURA";
 return msg;
-```
-![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/code%20distancia.png?raw=true)
+
+![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/conf%20temp.png?raw=true)
+
+msg.payload = msg.payload.HUMEDAD;
+msg.topic = "HUMEDAD";
+return msg;
+
+![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/conf%20hum.png?raw=true)
+
 
 5. Colocamos los bloques de chart y gauge.
 
-![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/distancia%20conf.png?raw=true)
+![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/conf%20gauge%20tem.png?raw=true)
 
-![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/grafic.png?raw=true)
+![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/conf%20guage%20hum.png?raw=true)
+
+
 ## Resultados
 
-Cuando haya funcionado, la información obtenida del sensor **HC-SR04** los mandara a servidor cuando se haga conexión y los observaremos por medio del dashboard. 
+Cuando haya funcionado, la información obtenida del sensor **DHT22** los mandara a servidor cuando se haga conexión y los observaremos por medio del dashboard. 
+Y asi nos debe quedar la conexion del esquema com se muestra en la siguiente imagen.
+
+![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/conexion%20localhost.png?raw=true)
 
 Damos Clic en el boton donde dice ```Deploy``` para cargar el programa y despues oprimos la pestaña con una flechita señalnado hacia arriba en diagonal, como se muestra en la imagen. 
 
@@ -270,7 +281,8 @@ Damos Clic en el boton donde dice ```Deploy``` para cargar el programa y despues
 
 Y veremos los resultados que manda el sensor al servidor como se muestra en la imagen.
 
-![](https://github.com/Omarcollado23/PRACTICA-7-CON-ULTRASONICO/blob/main/resultados.png?raw=true)
+![](https://github.com/Omarcollado23/PRACTICA-6-DHT22-CON-NODE-RED/blob/main/resultados%20dht22.png?raw=true)
+
 
 
 
